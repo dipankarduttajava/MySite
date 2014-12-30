@@ -3,6 +3,7 @@
     
 <%@taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@taglib prefix="tilesx" uri="http://tiles.apache.org/tags-tiles-extras" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,6 +18,7 @@
 	<title><tiles:getAsString name="title"/></title>
 </head>
 	<body>
+	<tilesx:useAttribute name="current"/>
 		<div class="container">
 	
 		 <nav class="navbar navbar-default">
@@ -32,8 +34,8 @@
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-              <li class="active"><a href='<spring:url value="/"/>'>Home</a></li>
-              <li><a href="#">About</a></li>
+              <li class="${current == 'index' ? 'active' : '' }"><a href='<spring:url value="/"/>'>Home</a></li>
+              <li class="${current == 'users' ? 'active' : '' }"><a href='<spring:url value="/users.html"/>'>Users</a></li>
               <li><a href="#">Contact</a></li>
               <!-- <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
