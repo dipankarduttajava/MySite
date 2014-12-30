@@ -36,7 +36,8 @@
             <ul class="nav navbar-nav">
               <li class="${current == 'index' ? 'active' : '' }"><a href='<spring:url value="/"/>'>Home</a></li>
               <li class="${current == 'users' ? 'active' : '' }"><a href='<spring:url value="/users.html"/>'>Users</a></li>
-              <li><a href="#">Contact</a></li>
+              <li class="${current == 'users' ? 'register' : '' }"><a href='<spring:url value="/register.html"/>'>User Register</a></li>
+              
               <!-- <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
