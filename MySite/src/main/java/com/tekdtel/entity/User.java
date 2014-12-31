@@ -16,6 +16,7 @@ public class User implements Serializable{
 	private String name;
 	private String email;
 	private String password;
+	private Boolean enable;
 	
 	
 	private List<Role> roles;
@@ -71,6 +72,14 @@ public class User implements Serializable{
 
 	public void setBlogs(List<Blog> blogs) {
 		this.blogs = blogs;
+	}
+
+	public Boolean getEnable() {
+		return enable;
+	}
+
+	public void setEnable(Boolean enable) {
+		this.enable = enable;
 	}
 	
 	

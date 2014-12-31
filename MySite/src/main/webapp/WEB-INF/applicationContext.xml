@@ -37,4 +37,6 @@
 	
 	<jpa:repositories base-package="com.tekdtel.repositories" />
 	
+	<import resource="security.xml"/>
+	
 </beans>

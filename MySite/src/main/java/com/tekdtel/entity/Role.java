@@ -33,8 +33,7 @@ public class Role implements Serializable{
 	public void setName(String name) {
 		this.name = name;
 	}
-	@ManyToMany
-	@JoinTable	
+	@ManyToMany(mappedBy="roles")
 	public List<User> getUsers() {
 		return users;
 	}

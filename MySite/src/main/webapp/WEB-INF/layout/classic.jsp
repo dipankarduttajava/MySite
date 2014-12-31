@@ -4,6 +4,7 @@
 <%@taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@taglib prefix="tilesx" uri="http://tiles.apache.org/tags-tiles-extras" %>
+<%@taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,9 +36,16 @@
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
               <li class="${current == 'index' ? 'active' : '' }"><a href='<spring:url value="/"/>'>Home</a></li>
-              <li class="${current == 'users' ? 'active' : '' }"><a href='<spring:url value="/users.html"/>'>Users</a></li>
+              <security:authorize access="hasRole('ROLE_ADMIN')">
+              	<li class="${current == 'users' ? 'active' : '' }"><a href='<spring:url value="/users.html"/>'>Users</a></li>
+              </security:authorize>
               <li class="${current == 'users' ? 'register' : '' }"><a href='<spring:url value="/register.html"/>'>User Register</a></li>
-              
+              <security:authorize access="! isAuthenticated()"> 
+              	<li class="${current == 'login' ? 'active' : '' }"><a href='<spring:url value="/login.html"/>'>Sign In</a></li>
+              </security:authorize>
+              <security:authorize access="isAuthenticated()">
+              	<li><a href='<spring:url value="/logout"/>'>Logout</a></li>
+              </security:authorize>
               <!-- <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
