@@ -33,13 +33,16 @@ public class InitDbService {
 	
 	@PostConstruct
 	public void init(){
+				
+		Role roleAdmin = new Role();
+		roleAdmin.setId(1);
+		roleAdmin.setName("ROLE_ADMIN");
+		roleRepository.save(roleAdmin);
+		
 		Role roleUser = new Role();
+		roleUser.setId(2);
 		roleUser.setName("ROLE_USER");
 		roleRepository.save(roleUser);
-		
-		Role roleAdmin = new Role();
-		roleUser.setName("ROLE_ADMIN");
-		roleRepository.save(roleAdmin);
 		
 		List<Role> roles = new ArrayList<Role>();
 		roles.add(roleAdmin);

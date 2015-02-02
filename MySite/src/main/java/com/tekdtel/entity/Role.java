@@ -13,6 +13,7 @@ import javax.persistence.ManyToMany;
 public class Role implements Serializable{
 	private Integer id;
 	private String name;
+	private String prefix;
 	
 	private List<User> users;
 	
@@ -40,6 +41,14 @@ public class Role implements Serializable{
 
 	public void setUsers(List<User> users) {
 		this.users = users;
+	}
+
+	public String getPrefix() {
+		return prefix;
+	}
+
+	public void setPrefix(String prefix) {
+		this.prefix = prefix;
 	}
 	
 }
